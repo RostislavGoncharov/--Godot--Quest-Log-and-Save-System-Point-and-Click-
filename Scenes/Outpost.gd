@@ -9,9 +9,9 @@ func _ready():
 func _process(delta):
 	
 	# Press ESC to reload the scene
-	if Input.is_action_just_pressed("ui_cancel"):
-		get_tree().reload_current_scene()
-		Player.get_node("Camera").fade_in()
+#	if Input.is_action_just_pressed("ui_cancel"):
+#		get_tree().reload_current_scene()
+#		Player.get_node("Camera").fade_in()
 	
 	if scene_number == 2:
 		Player.get_node("Camera/CanvasLayer/TextureButton").set_disabled(true)
@@ -45,3 +45,9 @@ func next_stage():
 
 func _on_TextureButton_pressed():
 	next_stage()
+
+
+func _on_ChangeScene_pressed():
+	Player.get_node("Camera").fade_out()
+	yield(get_tree().create_timer(1), "timeout")
+	get_tree().change_scene("res://Scenes/ScreenScene.tscn")
