@@ -20,7 +20,7 @@ func _process(delta):
 
 # Move camera to the next part of the level
 func next_stage():
-	var camera_point = $Stage3/CameraPoint3
+	var camera_point 
 	
 	scene_number += 1
 	
