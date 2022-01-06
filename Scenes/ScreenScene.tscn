@@ -48,5 +48,57 @@ margin_bottom = 72.0
 custom_fonts/font = SubResource( 1 )
 text = "PRESS ME"
 
+[node name="Popup" type="Popup" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RestartButton" type="Button" parent="Popup"]
+margin_left = 632.0
+margin_top = 840.0
+margin_right = 1008.0
+margin_bottom = 912.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Popup/RestartButton"]
+margin_left = 64.0
+margin_right = 384.0
+margin_bottom = 72.0
+custom_fonts/font = SubResource( 1 )
+text = "RESTART"
+
+[node name="CancelButton" type="Button" parent="Popup"]
+margin_left = 1248.0
+margin_top = 840.0
+margin_right = 1624.0
+margin_bottom = 912.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Popup/CancelButton"]
+margin_left = 80.0
+margin_right = 400.0
+margin_bottom = 72.0
+custom_fonts/font = SubResource( 1 )
+text = "CANCEL"
+
+[node name="ScreenButton" type="ToolButton" parent="."]
+visible = false
+margin_left = 656.0
+margin_top = 200.0
+margin_right = 1600.0
+margin_bottom = 736.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="finished" from="Video" to="." method="_on_Video_finished"]
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Popup/RestartButton" to="." method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="Popup/CancelButton" to="." method="_on_CancelButton_pressed"]
+[connection signal="pressed" from="ScreenButton" to="." method="_on_ScreenButton_pressed"]
