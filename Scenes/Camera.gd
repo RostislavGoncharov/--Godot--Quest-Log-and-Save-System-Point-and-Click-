@@ -1,6 +1,8 @@
 extends Camera2D
 
 func _ready():
+	$JournalUI/Journal/ExitButton.connect("pressed", self, "_on_JournalExitButton_pressed")
+	
 	fade_in()
 	
 func _process(delta):
@@ -13,3 +15,15 @@ func fade_in():
 
 func fade_out():
 	$FadeLayer/TextureRect/AnimationPlayer.play_backwards("fade_in")
+
+
+
+
+
+func _on_JournalButton_pressed():
+	$JournalUI/Journal.set_deferred("visible", true)
+	$NavigationUI/TextureButton.set_deferred("visible", false)
+	
+func _on_JournalExitButton_pressed():
+	$JournalUI/Journal.set_deferred("visible", false)
+	$NavigationUI/TextureButton.set_deferred("visible", true)

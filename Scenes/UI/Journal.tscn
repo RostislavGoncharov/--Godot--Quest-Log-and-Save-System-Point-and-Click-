@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Fonts/Roboto-Light.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Scenes/UI/JournalEntry.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/UI/Journal.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Themes/new_theme.tres" type="Theme" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0.439216 )
@@ -23,23 +24,10 @@ TabContainer/styles/panel = SubResource( 1 )
 TabContainer/styles/tab_bg = SubResource( 2 )
 TabContainer/styles/tab_fg = SubResource( 3 )
 
-[sub_resource type="StyleBoxFlat" id=8]
-
-[sub_resource type="StyleBoxFlat" id=9]
-bg_color = Color( 0.0392157, 0.0352941, 0.0352941, 0.384314 )
-
-[sub_resource type="DynamicFont" id=6]
-size = 30
-font_data = ExtResource( 1 )
-
-[sub_resource type="Theme" id=7]
-default_font = SubResource( 6 )
-Label/styles/normal = SubResource( 8 )
-RichTextLabel/styles/normal = SubResource( 9 )
-
 [node name="Journal" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -52,22 +40,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Cycle 1" type="Tabs" parent="TabContainer"]
+[node name="Cycle_1" type="Tabs" parent="TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 29.0
 
-[node name="EntryText" type="RichTextLabel" parent="TabContainer/Cycle 1"]
+[node name="EntryText" type="RichTextLabel" parent="TabContainer/Cycle_1"]
 margin_left = 572.0
 margin_top = 32.0
 margin_right = 1880.0
 margin_bottom = 1008.0
-theme = SubResource( 7 )
+theme = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="JournalEntries" type="ScrollContainer" parent="TabContainer/Cycle 1"]
+[node name="JournalEntries" type="ScrollContainer" parent="TabContainer/Cycle_1"]
 margin_left = 40.0
 margin_top = 32.0
 margin_right = 532.0
@@ -76,30 +64,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Cycle 1/JournalEntries"]
+[node name="Cycle1Entries" type="VBoxContainer" parent="TabContainer/Cycle_1/JournalEntries"]
 margin_right = 492.0
-margin_bottom = 100.0
 rect_min_size = Vector2( 492, 0 )
 
-[node name="JournalEntry" parent="TabContainer/Cycle 1/JournalEntries/VBoxContainer" instance=ExtResource( 2 )]
-
-[node name="Cycle 2" type="Tabs" parent="TabContainer"]
+[node name="Cycle_2" type="Tabs" parent="TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 29.0
 
-[node name="EntryText" type="RichTextLabel" parent="TabContainer/Cycle 2"]
+[node name="EntryText" type="RichTextLabel" parent="TabContainer/Cycle_2"]
 margin_left = 572.0
 margin_top = 32.0
 margin_right = 1880.0
 margin_bottom = 1008.0
-theme = SubResource( 7 )
+theme = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="JournalEntries" type="ScrollContainer" parent="TabContainer/Cycle 2"]
+[node name="JournalEntries" type="ScrollContainer" parent="TabContainer/Cycle_2"]
 margin_left = 40.0
 margin_top = 32.0
 margin_right = 532.0
@@ -108,9 +93,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Cycle 2/JournalEntries"]
+[node name="Cycle2Entries" type="VBoxContainer" parent="TabContainer/Cycle_2/JournalEntries"]
 margin_right = 492.0
-margin_bottom = 100.0
 rect_min_size = Vector2( 492, 0 )
 
-[node name="JournalEntry" parent="TabContainer/Cycle 2/JournalEntries/VBoxContainer" instance=ExtResource( 2 )]
+[node name="ExitButton" type="Button" parent="."]
+margin_left = 832.0
+margin_top = 1040.0
+margin_right = 1101.0
+margin_bottom = 1080.0
+theme = ExtResource( 3 )
+text = "BACK"

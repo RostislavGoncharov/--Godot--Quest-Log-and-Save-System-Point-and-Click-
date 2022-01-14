@@ -3,20 +3,15 @@ extends Node2D
 var scene_number = 0
 
 func _ready():
-	Player.get_node("Camera/CanvasLayer/TextureButton").connect("pressed", self, "_on_TextureButton_pressed")
+	Player.get_node("Camera/NavigationUI/TextureButton").connect("pressed", self, "_on_TextureButton_pressed")
 	Player.get_node("Camera").set_offset(Vector2(0, 0))
 	
 func _process(delta):
 	
-	# Press ESC to reload the scene
-#	if Input.is_action_just_pressed("ui_cancel"):
-#		get_tree().reload_current_scene()
-#		Player.get_node("Camera").fade_in()
-	
 	if scene_number == 2:
-		Player.get_node("Camera/CanvasLayer/TextureButton").set_disabled(true)
+		Player.get_node("Camera/NavigationUI/TextureButton").set_disabled(true)
 	elif scene_number < 2:
-		Player.get_node("Camera/CanvasLayer/TextureButton").set_disabled(false)
+		Player.get_node("Camera/NavigationUI/TextureButton").set_disabled(false)
 
 # Move camera to the next part of the level
 func next_stage():
@@ -51,3 +46,12 @@ func _on_ChangeScene_pressed():
 	Player.get_node("Camera").fade_out()
 	yield(get_tree().create_timer(1), "timeout")
 	get_tree().change_scene("res://Scenes/ScreenScene.tscn")
+
+
+func _on_new_journal_entry(name):
+	var journal_entry_item = preload("res://Scenes/UI/JournalEntry.tscn").instance()
+	Player.get_node("Camera/JournalUI/Journal/TabContainer/Cycle_1/JournalEntries/Cycle1Entries").add_child(journal_entry_item)
+	journal_entry_item.connect("journal_entry_pressed", Player.get_node("Camera/JournalUI/Journal"), "_on_journal_entry_pressed")
+	journal_entry_item.text = name
+	
+	
