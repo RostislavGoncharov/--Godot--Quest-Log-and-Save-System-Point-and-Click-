@@ -1,0 +1,100 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Assets/Fonts/Roboto-Light.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scenes/UI/JournalEntry.tscn" type="PackedScene" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0.439216 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.0901961, 0.0823529, 0.0823529, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.623529, 0.54902, 0.490196, 1 )
+
+[sub_resource type="DynamicFont" id=4]
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=5]
+default_font = SubResource( 4 )
+TabContainer/colors/font_color_fg = Color( 0, 0, 0, 1 )
+TabContainer/styles/panel = SubResource( 1 )
+TabContainer/styles/tab_bg = SubResource( 2 )
+TabContainer/styles/tab_fg = SubResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.0392157, 0.0352941, 0.0352941, 0.384314 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=7]
+default_font = SubResource( 6 )
+Label/styles/normal = SubResource( 8 )
+RichTextLabel/styles/normal = SubResource( 9 )
+
+[node name="Journal" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabContainer" type="TabContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cycle 1" type="Tabs" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 29.0
+
+[node name="EntryText" type="RichTextLabel" parent="TabContainer/Cycle 1"]
+margin_left = 572.0
+margin_top = 32.0
+margin_right = 1880.0
+margin_bottom = 1008.0
+theme = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="JournalEntries" type="ScrollContainer" parent="TabContainer/Cycle 1"]
+margin_left = 40.0
+margin_top = 32.0
+margin_right = 532.0
+margin_bottom = 993.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Cycle 1/JournalEntries"]
+margin_right = 492.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 492, 0 )
+
+[node name="JournalEntry" parent="TabContainer/Cycle 1/JournalEntries/VBoxContainer" instance=ExtResource( 2 )]
+
+[node name="Cycle 2" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 29.0
+
+[node name="EntryText" type="RichTextLabel" parent="TabContainer/Cycle 2"]
+margin_left = 572.0
+margin_top = 32.0
+margin_right = 1880.0
+margin_bottom = 1008.0
+theme = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

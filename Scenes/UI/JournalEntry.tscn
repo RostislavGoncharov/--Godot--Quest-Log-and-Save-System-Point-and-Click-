@@ -1,0 +1,8 @@
+[gd_scene format=2]
+
+[node name="JournalEntry" type="Button"]
+margin_right = 492.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 492, 100 )
+focus_mode = 0
+enabled_focus_mode = 0
