@@ -3,8 +3,8 @@
 [ext_resource path="res://Scenes/UI/JournalEntryInteractable.gd" type="Script" id=1]
 
 [sub_resource type="Gradient" id=1]
-offsets = PoolRealArray( 1 )
-colors = PoolColorArray( 1, 1, 1, 1 )
+offsets = PoolRealArray( 0.291429 )
+colors = PoolColorArray( 0.492022, 0.492022, 0.492022, 1 )
 
 [sub_resource type="GradientTexture" id=2]
 gradient = SubResource( 1 )

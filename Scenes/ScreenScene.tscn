@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Pictures/pexels-markus-spiske-965343.jpg" type="Texture" id=1]
 [ext_resource path="res://Scenes/ScreenScene.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/UI/JournalEntryInteractable.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Fonts/fake receipt.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="VideoStreamWebm" id=2]
@@ -9,6 +10,20 @@
 [sub_resource type="DynamicFont" id=1]
 size = 56
 font_data = ExtResource( 4 )
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0 )
+colors = PoolColorArray( 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 1 )
+colors = PoolColorArray( 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
 
 [node name="ScreenScene" type="Node2D"]
 script = ExtResource( 2 )
@@ -31,22 +46,6 @@ stream = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Button" type="Button" parent="."]
-margin_left = 840.0
-margin_top = 840.0
-margin_right = 1408.0
-margin_bottom = 912.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="Button"]
-margin_left = 128.0
-margin_right = 448.0
-margin_bottom = 72.0
-custom_fonts/font = SubResource( 1 )
-text = "PRESS ME"
 
 [node name="Popup" type="Popup" parent="."]
 margin_right = 1920.0
@@ -97,8 +96,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Misc Entry 1" parent="." instance=ExtResource( 3 )]
+margin_left = 838.0
+margin_top = 839.0
+margin_right = 1409.0
+margin_bottom = 913.0
+texture_normal = SubResource( 4 )
+texture_pressed = SubResource( 6 )
+
+[node name="Label" type="Label" parent="Misc Entry 1"]
+margin_left = 130.0
+margin_top = 1.0
+margin_right = 450.0
+margin_bottom = 73.0
+custom_fonts/font = SubResource( 1 )
+text = "PRESS ME"
+
 [connection signal="finished" from="Video" to="." method="_on_Video_finished"]
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Popup/RestartButton" to="." method="_on_RestartButton_pressed"]
 [connection signal="pressed" from="Popup/CancelButton" to="." method="_on_CancelButton_pressed"]
 [connection signal="pressed" from="ScreenButton" to="." method="_on_ScreenButton_pressed"]
+[connection signal="pressed" from="Misc Entry 1" to="." method="_on_Button_pressed"]

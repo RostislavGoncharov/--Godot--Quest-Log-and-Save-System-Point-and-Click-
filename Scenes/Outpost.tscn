@@ -84,8 +84,4 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="new_journal_entry" from="Stage1/Scene 1 Entry 1" to="." method="_on_new_journal_entry"]
-[connection signal="new_journal_entry" from="Stage1/Scene 1 Entry 2" to="." method="_on_new_journal_entry"]
-[connection signal="new_journal_entry" from="Stage2/Scene 2 Entry 1" to="." method="_on_new_journal_entry"]
-[connection signal="new_journal_entry" from="Stage2/Scene 2 Entry 2" to="." method="_on_new_journal_entry"]
 [connection signal="pressed" from="Stage3/TextureButton" to="." method="_on_ChangeScene_pressed"]

@@ -46,12 +46,5 @@ func _on_ChangeScene_pressed():
 	Player.get_node("Camera").fade_out()
 	yield(get_tree().create_timer(1), "timeout")
 	get_tree().change_scene("res://Scenes/ScreenScene.tscn")
-
-
-func _on_new_journal_entry(name):
-	var journal_entry_item = preload("res://Scenes/UI/JournalEntry.tscn").instance()
-	Player.get_node("Camera/JournalUI/Journal/TabContainer/Cycle_1/JournalEntries/Cycle1Entries").add_child(journal_entry_item)
-	journal_entry_item.connect("journal_entry_pressed", Player.get_node("Camera/JournalUI/Journal"), "_on_journal_entry_pressed")
-	journal_entry_item.text = name
 	
 	
