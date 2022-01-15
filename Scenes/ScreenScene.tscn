@@ -96,7 +96,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Misc Entry 1" parent="." instance=ExtResource( 3 )]
+[node name="Interactables" type="Node2D" parent="."]
+
+[node name="Misc Entry 1" parent="Interactables" instance=ExtResource( 3 )]
 margin_left = 838.0
 margin_top = 839.0
 margin_right = 1409.0
@@ -104,7 +106,7 @@ margin_bottom = 913.0
 texture_normal = SubResource( 4 )
 texture_pressed = SubResource( 6 )
 
-[node name="Label" type="Label" parent="Misc Entry 1"]
+[node name="Label" type="Label" parent="Interactables/Misc Entry 1"]
 margin_left = 130.0
 margin_top = 1.0
 margin_right = 450.0
@@ -116,4 +118,4 @@ text = "PRESS ME"
 [connection signal="pressed" from="Popup/RestartButton" to="." method="_on_RestartButton_pressed"]
 [connection signal="pressed" from="Popup/CancelButton" to="." method="_on_CancelButton_pressed"]
 [connection signal="pressed" from="ScreenButton" to="." method="_on_ScreenButton_pressed"]
-[connection signal="pressed" from="Misc Entry 1" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Interactables/Misc Entry 1" to="." method="_on_Button_pressed"]

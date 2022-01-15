@@ -19,6 +19,7 @@ margin_left = -128.0
 margin_top = -120.0
 margin_right = 128.0
 margin_bottom = 120.0
+focus_mode = 0
 texture_hover = SubResource( 2 )
 expand = true
 script = ExtResource( 1 )

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=6 format=2]
+[gd_resource type="Theme" load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Fonts/Roboto-Light.ttf" type="DynamicFontData" id=1]
 
@@ -10,6 +10,21 @@ bg_color = Color( 0.0509804, 0.0470588, 0.0470588, 0.72549 )
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0196078, 0.0313726, 0.0509804, 0.392157 )
 
+[sub_resource type="StyleBoxFlat" id=5]
+content_margin_left = 50.0
+content_margin_right = 50.0
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+content_margin_left = 50.0
+content_margin_right = 50.0
+bg_color = Color( 0.298039, 0.298039, 0.298039, 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+content_margin_left = 50.0
+content_margin_right = 50.0
+bg_color = Color( 0.976471, 0.976471, 0.976471, 1 )
+
 [sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 1 )
 
@@ -17,4 +32,8 @@ font_data = ExtResource( 1 )
 default_font = SubResource( 2 )
 Label/styles/normal = SubResource( 3 )
 RichTextLabel/styles/normal = SubResource( 4 )
+TabContainer/colors/font_color_fg = Color( 0, 0, 0, 1 )
 TabContainer/styles/panel = SubResource( 1 )
+TabContainer/styles/tab_bg = SubResource( 5 )
+TabContainer/styles/tab_disabled = SubResource( 6 )
+TabContainer/styles/tab_fg = SubResource( 7 )

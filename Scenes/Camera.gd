@@ -31,7 +31,9 @@ func _on_JournalButton_pressed():
 			pass
 	$JournalUI/Journal.set_deferred("visible", true)
 	$NavigationUI/TextureButton.set_deferred("visible", false)
+	$Controls/JournalButton.set_deferred("visible", false)
 	
 func _on_JournalExitButton_pressed():
 	$JournalUI/Journal.set_deferred("visible", false)
 	$NavigationUI/TextureButton.set_deferred("visible", true)
+	$Controls/JournalButton.set_deferred("visible", true)
