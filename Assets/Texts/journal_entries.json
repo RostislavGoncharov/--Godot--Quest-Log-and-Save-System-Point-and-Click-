@@ -1,0 +1,7 @@
+{
+  "Scene 1 Entry 1" : {"text" : "This is Cycle 1 Entry 1, derived from JSON", "category" : "Cycle_1", "name" : "Entry 1"},
+  "Scene 1 Entry 2" : {"text" : "This is Cycle 1 Entry 2, derived from JSON", "category" : "Cycle_1", "name" : "Entry 2"},
+  "Scene 2 Entry 1" : {"text" : "This is Cycle 2 Entry 1, derived from JSON", "category" : "Cycle_2", "name" : "Entry 3"},
+  "Scene 2 Entry 2" : {"text" : "This is Cycle 2 Entry 2, derived from JSON", "category" : "Cycle_2", "name" : "Entry 4"},
+  "Misc Entry 1" : {"text" : "This is Misc Entry 1, derived from JSON", "category" : "Misc", "name" : "Entry 5"}
+}

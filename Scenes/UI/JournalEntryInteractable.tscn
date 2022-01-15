@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/UI/JournalEntryInteractable.gd" type="Script" id=1]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0.291429 )
+colors = PoolColorArray( 0.492022, 0.492022, 0.492022, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+width = 240
+
+[node name="JournalEntryInteractable" type="TextureButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = -120.0
+margin_right = 128.0
+margin_bottom = 120.0
+focus_mode = 0
+texture_hover = SubResource( 2 )
+expand = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="." to="." method="_on_JournalEntryInteractable_pressed"]

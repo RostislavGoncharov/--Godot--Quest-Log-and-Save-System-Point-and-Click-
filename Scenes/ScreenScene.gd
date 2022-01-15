@@ -8,7 +8,7 @@ func _on_Button_pressed():
 	var video = preload("res://Assets/Video/BOV_Video_Intro.webm")
 	$Video.set_stream(video)
 	$Video.play()
-	$Button.set_deferred("visible", false)
+	$"Interactables/Misc Entry 1".set_deferred("visible", false)
 	$ScreenButton.set_deferred("visible", true)
 
 

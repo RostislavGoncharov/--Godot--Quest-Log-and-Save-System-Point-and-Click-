@@ -1,0 +1,121 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/UI/Journal.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Themes/new_theme.tres" type="Theme" id=3]
+
+[node name="Journal" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabContainer" type="TabContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cycle_1" type="Tabs" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 19.0
+theme = ExtResource( 3 )
+
+[node name="EntryText" type="RichTextLabel" parent="TabContainer/Cycle_1"]
+margin_left = 572.0
+margin_top = 32.0
+margin_right = 1880.0
+margin_bottom = 1008.0
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="JournalEntries" type="ScrollContainer" parent="TabContainer/Cycle_1"]
+margin_left = 40.0
+margin_top = 32.0
+margin_right = 532.0
+margin_bottom = 993.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cycle1Entries" type="VBoxContainer" parent="TabContainer/Cycle_1/JournalEntries"]
+margin_right = 492.0
+rect_min_size = Vector2( 492, 0 )
+
+[node name="Cycle_2" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 29.0
+theme = ExtResource( 3 )
+
+[node name="EntryText" type="RichTextLabel" parent="TabContainer/Cycle_2"]
+margin_left = 572.0
+margin_top = 32.0
+margin_right = 1880.0
+margin_bottom = 1008.0
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="JournalEntries" type="ScrollContainer" parent="TabContainer/Cycle_2"]
+margin_left = 40.0
+margin_top = 32.0
+margin_right = 532.0
+margin_bottom = 993.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cycle2Entries" type="VBoxContainer" parent="TabContainer/Cycle_2/JournalEntries"]
+margin_right = 492.0
+rect_min_size = Vector2( 492, 0 )
+
+[node name="Misc" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 29.0
+theme = ExtResource( 3 )
+
+[node name="EntryText" type="RichTextLabel" parent="TabContainer/Misc"]
+margin_left = 572.0
+margin_top = 32.0
+margin_right = 1880.0
+margin_bottom = 1008.0
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="JournalEntries" type="ScrollContainer" parent="TabContainer/Misc"]
+margin_left = 40.0
+margin_top = 32.0
+margin_right = 532.0
+margin_bottom = 993.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MiscEntries" type="VBoxContainer" parent="TabContainer/Misc/JournalEntries"]
+margin_right = 492.0
+rect_min_size = Vector2( 492, 0 )
+
+[node name="ExitButton" type="Button" parent="."]
+margin_left = 832.0
+margin_top = 1040.0
+margin_right = 1101.0
+margin_bottom = 1080.0
+focus_mode = 0
+theme = ExtResource( 3 )
+text = "BACK"
+__meta__ = {
+"_edit_use_anchors_": false
+}
