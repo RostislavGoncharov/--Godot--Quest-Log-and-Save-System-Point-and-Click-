@@ -1,5 +1,7 @@
 extends TextureButton
 
+# A prefab for any points in the game which add a journal entry upon interaction
+
 var visited = false
 
 signal new_journal_entry(name)
