@@ -21,6 +21,13 @@ func fade_out():
 
 
 func _on_JournalButton_pressed():
+	match Player.game_state:
+		0:
+			$JournalUI/Journal/TabContainer.current_tab = 0
+		1:
+			$JournalUI/Journal/TabContainer.current_tab = 1
+		_:
+			pass
 	$JournalUI/Journal.set_deferred("visible", true)
 	$NavigationUI/TextureButton.set_deferred("visible", false)
 	
