@@ -22,7 +22,7 @@ func fade_out():
 
 func _on_JournalButton_pressed():
 	# Displays the correct tab for the current cycle
-	match Player.game_state:
+	match GameDataManager.get_value("game_state"):
 		0:
 			$JournalUI/Journal/TabContainer.current_tab = 0
 		1:

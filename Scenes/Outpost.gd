@@ -27,7 +27,7 @@ func next_stage():
 			camera_point = $Stage1/CameraPoint1
 		1: 
 			camera_point = $Stage2/CameraPoint2
-			Player.game_state = Player.cycles.CYCLE_2
+			GameDataManager.set_value("game_state", 1)
 		2: 
 			camera_point = $Stage3/CameraPoint3
 		_:
