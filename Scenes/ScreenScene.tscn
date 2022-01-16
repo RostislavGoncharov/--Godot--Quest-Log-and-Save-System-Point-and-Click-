@@ -54,7 +54,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RestartButton" type="Button" parent="Popup"]
+[node name="FinishButton" type="Button" parent="Popup"]
 margin_left = 632.0
 margin_top = 840.0
 margin_right = 1008.0
@@ -63,12 +63,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Popup/RestartButton"]
+[node name="Label" type="Label" parent="Popup/FinishButton"]
 margin_left = 64.0
 margin_right = 384.0
 margin_bottom = 72.0
 custom_fonts/font = SubResource( 1 )
-text = "RESTART"
+text = "FINISH"
 
 [node name="CancelButton" type="Button" parent="Popup"]
 margin_left = 1248.0
@@ -115,7 +115,7 @@ custom_fonts/font = SubResource( 1 )
 text = "PRESS ME"
 
 [connection signal="finished" from="Video" to="." method="_on_Video_finished"]
-[connection signal="pressed" from="Popup/RestartButton" to="." method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="Popup/FinishButton" to="." method="_on_FinishButton_pressed"]
 [connection signal="pressed" from="Popup/CancelButton" to="." method="_on_CancelButton_pressed"]
 [connection signal="pressed" from="ScreenButton" to="." method="_on_ScreenButton_pressed"]
 [connection signal="pressed" from="Interactables/Misc Entry 1" to="." method="_on_Button_pressed"]

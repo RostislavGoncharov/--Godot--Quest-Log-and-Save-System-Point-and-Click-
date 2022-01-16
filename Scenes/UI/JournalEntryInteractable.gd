@@ -2,8 +2,6 @@ extends TextureButton
 
 # A prefab for any points in the game which add a journal entry upon interaction
 
-var visited = false
-
 signal new_journal_entry(name)
 
 func _ready():
@@ -11,7 +9,11 @@ func _ready():
 
 
 func _on_JournalEntryInteractable_pressed():
-	if !visited:
-		emit_signal("new_journal_entry", self.name)
+	var visited_array = GameDataManager.get_value("interactables_visited")
 	
-	visited = true
+	if visited_array.has(self.name):
+		return
+	else:
+		emit_signal("new_journal_entry", self.name)
+		visited_array.append(self.name)
+
