@@ -41,11 +41,15 @@ func next_stage():
 
 func _on_TextureButton_pressed():
 	next_stage()
-
-
-func _on_ChangeScene_pressed():
-	GameDataManager.on_scene_completed()
-	yield(get_tree().create_timer(1), "timeout")
-	get_tree().change_scene("res://Scenes/ScreenScene.tscn")
 	
+
+func _on_TextureButton_mouse_entered():
+	$Stage3/TextureButton/RichTextLabel.set_deferred("visible", true)
+
+
+func _on_TextureButton_mouse_exited():
+	$Stage3/TextureButton/RichTextLabel.set_deferred("visible", false)
+
+func _on_ExitTextureButton_pressed():
+	get_tree().quit()
 	

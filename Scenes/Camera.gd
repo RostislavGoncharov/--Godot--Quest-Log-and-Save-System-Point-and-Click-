@@ -16,10 +16,6 @@ func fade_in():
 func fade_out():
 	$FadeLayer/TextureRect/AnimationPlayer.play_backwards("fade_in")
 
-
-
-
-
 func _on_JournalButton_pressed():
 	# Displays the correct tab for the current cycle
 	match GameDataManager.get_value("game_state"):

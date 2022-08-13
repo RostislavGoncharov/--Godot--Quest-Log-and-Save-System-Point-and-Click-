@@ -8,6 +8,5 @@ func _ready():
 func _on_NewGameButton_pressed():
 	GameDataManager.new_game()
 
-
 func _on_LoadGameButton_pressed():
 	GameDataManager.load_game()
