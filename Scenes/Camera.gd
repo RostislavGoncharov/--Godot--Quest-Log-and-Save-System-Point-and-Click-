@@ -16,16 +16,12 @@ func fade_in():
 func fade_out():
 	$FadeLayer/TextureRect/AnimationPlayer.play_backwards("fade_in")
 
-
-
-
-
 func _on_JournalButton_pressed():
 	# Displays the correct tab for the current cycle
-	match Player.game_state:
-		0:
+	match GameDataManager.get_value("game_state"):
+		"Cycle_1":
 			$JournalUI/Journal/TabContainer.current_tab = 0
-		1:
+		"Cycle_2":
 			$JournalUI/Journal/TabContainer.current_tab = 1
 		_:
 			pass
@@ -37,3 +33,8 @@ func _on_JournalExitButton_pressed():
 	$JournalUI/Journal.set_deferred("visible", false)
 	$NavigationUI/TextureButton.set_deferred("visible", true)
 	$Controls/JournalButton.set_deferred("visible", true)
+
+
+func _on_SaveExitButton_pressed():
+	GameDataManager.save_game()
+	get_tree().quit()

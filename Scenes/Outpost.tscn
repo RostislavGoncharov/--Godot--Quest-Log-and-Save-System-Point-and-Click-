@@ -1,18 +1,29 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Assets/Pictures/Screenshot Outpost 2021-04-14-11-11-33.jpg" type="Texture" id=1]
-[ext_resource path="res://Assets/Pictures/Screenshot Outpost 2021-04-14-11-12-02.jpg" type="Texture" id=2]
-[ext_resource path="res://Assets/Pictures/Screenshot Outpost 2021-04-14-11-12-29.jpg" type="Texture" id=3]
+[ext_resource path="res://Assets/Pictures/pexels-frans-van-heerden-624015.jpg" type="Texture" id=1]
+[ext_resource path="res://Assets/Pictures/pexels-michał-osiński-3454270.jpg" type="Texture" id=2]
+[ext_resource path="res://Assets/Pictures/pexels-roy-post-760971 (1).jpg" type="Texture" id=3]
 [ext_resource path="res://Scenes/Outpost.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/UI/JournalEntryInteractable.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Gradient" id=1]
-offsets = PoolRealArray( 1 )
-colors = PoolColorArray( 1, 1, 1, 1 )
+offsets = PoolRealArray( 0 )
+colors = PoolColorArray( 0.104972, 0.104972, 0.104972, 1 )
 
 [sub_resource type="GradientTexture" id=2]
 gradient = SubResource( 1 )
 width = 240
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://Assets/Fonts/Roboto-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 50
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 3 )
+
+[sub_resource type="Theme" id=5]
+default_font = SubResource( 4 )
 
 [node name="Outpost" type="Node2D"]
 script = ExtResource( 4 )
@@ -20,7 +31,7 @@ script = ExtResource( 4 )
 [node name="Stage1" type="TextureRect" parent="."]
 margin_right = 1920.0
 margin_bottom = 1080.0
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -31,7 +42,7 @@ __meta__ = {
 margin_top = 1080.0
 margin_right = 1920.0
 margin_bottom = 2160.0
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -42,7 +53,7 @@ __meta__ = {
 margin_top = 2160.0
 margin_right = 1920.0
 margin_bottom = 3240.0
-texture = ExtResource( 3 )
+texture = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -50,12 +61,29 @@ __meta__ = {
 [node name="CameraPoint3" type="Node2D" parent="Stage3"]
 
 [node name="TextureButton" type="TextureButton" parent="Stage3"]
-margin_left = 736.0
-margin_top = 536.0
-margin_right = 992.0
-margin_bottom = 776.0
+margin_left = 816.0
+margin_top = 624.0
+margin_right = 1112.0
+margin_bottom = 888.0
 texture_hover = SubResource( 2 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Stage3/TextureButton"]
+visible = false
+anchor_left = 0.071
+anchor_top = 0.5
+anchor_right = 0.811
+anchor_bottom = 0.697
+margin_left = 58.984
+margin_top = -36.0
+margin_right = 31.944
+margin_bottom = -16.008
+mouse_filter = 1
+theme = SubResource( 5 )
+text = "EXIT"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -86,4 +114,6 @@ margin_top = 1207.0
 margin_right = 408.0
 margin_bottom = 1447.0
 
-[connection signal="pressed" from="Stage3/TextureButton" to="." method="_on_ChangeScene_pressed"]
+[connection signal="mouse_entered" from="Stage3/TextureButton" to="." method="_on_TextureButton_mouse_entered"]
+[connection signal="mouse_exited" from="Stage3/TextureButton" to="." method="_on_TextureButton_mouse_exited"]
+[connection signal="pressed" from="Stage3/TextureButton" to="." method="_on_ExitTextureButton_pressed"]
