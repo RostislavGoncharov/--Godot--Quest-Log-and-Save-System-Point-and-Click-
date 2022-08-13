@@ -11,12 +11,13 @@ config_version=4
 [application]
 
 config/name="BookOfSomething"
-run/main_scene="res://Scenes/Outpost.tscn"
+run/main_scene="res://Scenes/UI/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-Player="*res://Scenes/Player.tscn"
+Player="*res://Scenes/Autoloads/Player.tscn"
+GameDataManager="*res://Scenes/Autoloads/GameDataManager.tscn"
 
 [display]
 

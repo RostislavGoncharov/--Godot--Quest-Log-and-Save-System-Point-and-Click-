@@ -1,0 +1,124 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scenes/Camera.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/UI/Journal.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Themes/new_theme.tres" type="Theme" id=3]
+[ext_resource path="res://Assets/Fonts/Roboto-Bold.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.196078, 0.470588, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.725172, 0.725172, 0.725172, 1, 0.151961, 0.151961, 0.151961, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 2 )
+width = 40
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0, 0.508287, 0.853591, 1 )
+colors = PoolColorArray( 0.631373, 0.203922, 0.203922, 1, 0.818741, 0.608558, 0.608558, 1, 0.94603, 0.883447, 0.883447, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 4 )
+width = 40
+
+[sub_resource type="Gradient" id=8]
+offsets = PoolRealArray( 1 )
+colors = PoolColorArray( 0.664384, 0.664384, 0.664384, 1 )
+
+[sub_resource type="GradientTexture" id=9]
+gradient = SubResource( 8 )
+width = 40
+
+[sub_resource type="DynamicFont" id=10]
+font_data = ExtResource( 4 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Player" type="Node2D"]
+
+[node name="Camera" type="Camera2D" parent="."]
+current = true
+limit_left = 0
+limit_top = 0
+script = ExtResource( 1 )
+
+[node name="NavigationUI" type="CanvasLayer" parent="Camera"]
+
+[node name="TextureButton" type="TextureButton" parent="Camera/NavigationUI"]
+visible = false
+margin_left = 40.0
+margin_top = 80.0
+margin_right = 80.0
+margin_bottom = 120.0
+texture_normal = SubResource( 6 )
+texture_hover = SubResource( 7 )
+texture_disabled = SubResource( 9 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Controls" type="CanvasLayer" parent="Camera"]
+
+[node name="JournalButton" type="Button" parent="Camera/Controls"]
+visible = false
+margin_left = 1729.0
+margin_top = 45.0
+margin_right = 1888.0
+margin_bottom = 98.0
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 10 )
+text = "JOURNAL"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveExitButton" type="Button" parent="Camera/Controls"]
+visible = false
+margin_left = 1729.0
+margin_top = 200.0
+margin_right = 1888.0
+margin_bottom = 253.0
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 10 )
+text = "SAVE & EXIT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FadeLayer" type="CanvasLayer" parent="Camera"]
+
+[node name="TextureRect" type="ColorRect" parent="Camera/FadeLayer"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera/FadeLayer/TextureRect"]
+anims/fade_in = SubResource( 5 )
+
+[node name="JournalUI" type="CanvasLayer" parent="Camera"]
+
+[node name="Journal" parent="Camera/JournalUI" instance=ExtResource( 2 )]
+visible = false
+journal_entries_json = "res://Assets/Texts/journal_entries.json"
+
+[connection signal="pressed" from="Camera/Controls/JournalButton" to="Camera" method="_on_JournalButton_pressed"]
+[connection signal="pressed" from="Camera/Controls/SaveExitButton" to="Camera" method="_on_SaveExitButton_pressed"]

@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Themes/new_theme.tres" type="Theme" id=1]
+[ext_resource path="res://Scenes/UI/MainMenu.gd" type="Script" id=2]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="NewGameButton" type="Button" parent="."]
+margin_left = 432.0
+margin_top = 512.0
+margin_right = 854.0
+margin_bottom = 645.0
+focus_mode = 0
+theme = ExtResource( 1 )
+text = "NEW GAME"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoadGameButton" type="Button" parent="."]
+margin_left = 1110.0
+margin_top = 512.0
+margin_right = 1532.0
+margin_bottom = 645.0
+focus_mode = 0
+theme = ExtResource( 1 )
+text = "LOAD GAME"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="NewGameButton" to="." method="_on_NewGameButton_pressed"]
+[connection signal="pressed" from="LoadGameButton" to="." method="_on_LoadGameButton_pressed"]
